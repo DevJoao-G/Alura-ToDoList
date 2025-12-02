@@ -17,6 +17,43 @@
             </nav>
      </header>
 
+     <section class="c">
+          <div class="mainContent">
+            <div class="dayANDtask">
+            <h1>Today</h1>
+             <p>6 task</p>
+             </div>
+            <button class="btn-addNew" id="btn-addNew">Add New</button>
+        </div>
+          <div class="modal-box" id="modal-box">
+            <div class="container-modal">
+                   <div class="close-modal">
+                    <span class="close-btn" id="close-btn">&times;</span>
+                </div>
+                <div class="modal">
+                <h1>Create New Task</h1>
+                <form class="task-form" id="task-form">
+                    <div class="form-group">
+                        <label for="task-title">Task Title</label>
+                        <input type="text" id="task-title" name="task-title" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="task-description">Task Description</label>
+                        <textarea id="task-description" name="task-description" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="task-time">Task Time</label>
+                        <input type="time" id="task-time" name="task-time" required>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Create New Task</button>
+                </form>
+                </div>
+            </div>
+        </div>
+     </section>
      
 </body>
 
