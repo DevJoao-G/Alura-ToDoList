@@ -12,9 +12,15 @@ const closemodal = () => {
     taskForm.reset();
 };
 
-// Função para atualizar a contagem de tarefas
+// Função para atualizar a contagem de tarefas (apenas não concluídas)
 const updateTaskCount = () => {
-    const taskCount = taskList.querySelectorAll("li:not(.empty-message)").length;
+    const allTasks = taskList.querySelectorAll("li:not(.empty-message)");
+    const incompleteTasks = Array.from(allTasks).filter(task => {
+        const checkbox = task.querySelector('.task-checkbox');
+        return checkbox && !checkbox.checked;
+    });
+    
+    const taskCount = incompleteTasks.length;
     taskCountElement.textContent = `${taskCount} task${taskCount !== 1 ? 's' : ''}`;
 };
 
@@ -48,6 +54,9 @@ const handleCheckboxChange = (checkbox) => {
         taskTime.style.textDecoration = 'none';
         taskElement.style.opacity = '1';
     }
+    
+    // Atualiza o contador após marcar/desmarcar
+    updateTaskCount();
 };
 
 // Função para criar uma nova tarefa
